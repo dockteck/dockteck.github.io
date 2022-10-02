@@ -1,0 +1,29 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://dockteck.github.io/",
+  "scripts": {
+    "init": "npx honkit init",
+    "build": "npx honkit build . docs",
+    "serve": "npx honkit serve",
+    "deploy": "gh-pages -d docs"
+  },
+  "keywords": [],
+  "author": "Name",
+  "license": "ISC",
+  "devDependencies": {
+    "honkit": "^4.0.0",
+    "gh-pages": "^4.0.0",
+    "@dogatana/honkit-plugin-back-to-top-button": "^1.0.0",
+    "@dogatana/honkit-plugin-page-toc-button": "^1.0.0",
+    "@dogatana/honkit-plugin-search-plus": "^1.0.1",
+    "gitbook-plugin-anchors": "^0.7.1",
+    "gitbook-plugin-copy-code-button": "^0.0.2",
+    "gitbook-plugin-github-issue-feedback": "^1.4.0",
+    "gitbook-plugin-hide-published-with": "^0.0.1",
+    "gitbook-plugin-hints": "^1.0.2",
+    "gitbook-plugin-insert-logo-link-style": "^1.0.3",
+    "honkit-plugin-toggle-chapters": "^0.0.1"
+  }
+}
