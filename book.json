@@ -25,7 +25,7 @@
             "minTocSize": 2
         },
         "github-issue-feedback": {
-            "repo": "user/repo",
+            "repo": "dockteck/dockteck.github.io",
             "label": "報告するる"
         },
         "insert-logo-link-style": {

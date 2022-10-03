@@ -1,19 +1,24 @@
 # Summary
 
-* [Introduction](README.md)
+* [はじめに](README.md)
+* [全体の流れ](flow.md)
 
-## Part I
-* [Writing is nice](part1/writing.md)
-* [HonKit is nice](part1/honkit.md)
+## 環境構築
+* [Volta](setup/volta.md)
+* [VSCode](setup/vscode.md)
 
-## Part II
-* [We love feedback](part2/feedback_please.md)
-* [Better tools for authors](part2/better_tools.md)
-* [Better tools for authors](part2/better_tools2.md)
+## HonKitの導入
+* [基本的なこと](honkit/basis.md)
+    * [jsonサンプル](honkit/scode.md)
+* [カスタマイズ](honkit/design.md)
+* [VSCとMD](honkit/vscmd.md)
+
+## Github Pages
+* [Github Pages](github/pages.md)
+* [404について](github/404p.md)
+* [Github Actions](github/actions.md)
 
 -----
-* [Last part without title](part3/sub/title.md)
-    * [Last part without title](part3/sub/title.md)
-    * [Last part without title](part3/sub/title2.md)
-        * [Last part without title](part3/sub/title3.md)
+* [参考](others/books.md)
+* [MDチートシート](others/cheat.md)
 
