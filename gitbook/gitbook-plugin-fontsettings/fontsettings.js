@@ -135,7 +135,7 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
         // Search for plugin configured theme
         var configTheme = $.grep(THEMES, function(theme) {
             return theme.config == configName;
-        })[2];
+        })[0];
         // Fallback to default theme
         return (!!configTheme)? configTheme.id : 0;
     }
@@ -165,7 +165,7 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
         fontState = gitbook.storage.get('fontState', {
             size:   config.size || 2,
             family: configFamily,
-            theme:  configTheme
+            theme:  configTheme || 2
         });
 
         update();
