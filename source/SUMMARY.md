@@ -9,7 +9,7 @@
 
 ## HonKitの導入
 * [基本的なこと](honkit/basis.md)
-    * [jsonサンプル](honkit/scode.md)
+    * [サンプルコード](honkit/scode.md)
 * [カスタマイズ](honkit/design.md)
 * [VSCとMD](honkit/vscmd.md)
 

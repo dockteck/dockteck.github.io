@@ -61,7 +61,7 @@
   "description": "",
   "homepage": "https://user.github.io/",
   "scripts": {
-    "init": "npx honkit init",
+    "init": "npx honkit init ./source",
     "build": "npx honkit build . docs",
     "serve": "npx honkit serve",
     "deploy": "npx honkit build . docs && gh-pages -d docs"

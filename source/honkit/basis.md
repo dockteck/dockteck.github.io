@@ -37,7 +37,7 @@ type nul > book.json
 ```
 
 book.jsonファイルを作成したら[別ページにサンプル](scode.md)を置いてあるのでbook.jsonにコピペしてください。重要なのは root、plugins、pluginsConfigの３つだけです。  
-npmでインストールしたプラグインはpackage.jsonに登録され、その中からhonkitが使いたいプラグインをbook.jsonで指定および有効化します。そして指定したプラグイン自体の設定をpluginsConfigによって行います。
+npmでインストールしたプラグインはpackage.jsonに登録され、その中からhonkitで使いたいプラグインをbook.jsonで指定および有効化します。そして指定したプラグイン自体の設定をpluginsConfigによって行います。
 
 ## package.json
 
@@ -76,8 +76,8 @@ npx honkit serve
 npx honkit build
 ```
 
-どちらも`_book`が生成される。  
-docsに出力したい場合は、なにをなにに、の順番なので下記を実行すればProject内にdocsが生成される。
+どちらも`_book`が生成されるようになっています。  
+docsに出力したい場合は「なにをなにに」の順番なので、下記を実行すればProject内にdocsが生成されます。
 
 ```
 npx honkit build . docs

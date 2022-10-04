@@ -7,7 +7,7 @@
 
 ## 環境構築
 
-1, HnKitはNodeが必要なので先にバージョン管理ツールを導入します。  
+1, HonKitはNodeが必要なので先にバージョン管理ツールを導入します。  
 WindowsはVolta、UNIX系はasdfかanyenvを入れます。
 
 2, エディターはVSCodeを使います。

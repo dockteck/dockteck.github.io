@@ -1,6 +1,6 @@
 {
     "root": "./source",
-    "title": "Honkit - Github Pages",
+    "title": "HonkitでGithub Pagesを作ってみる",
     "description": "HonkitをGithub Pagesで公開する",
     "author": "Name",
     "language": "ja",
@@ -10,8 +10,9 @@
         "@dogatana/page-toc-button",
         "@dogatana/back-to-top-button",
         "anchors",
+        "bottom-navigation",
         "copy-code-button",
-        "github-issue-feedback",
+        "edit-link",
         "hide-published-with",
         "hints",
         "insert-logo-link-style",
@@ -24,15 +25,20 @@
             "maxTocDepth": 2,
             "minTocSize": 2
         },
-        "github-issue-feedback": {
-            "repo": "dockteck/dockteck.github.io",
-            "label": "報告するる"
-        },
         "insert-logo-link-style": {
             "src": "/assets/logo.png",
             "style": "background: none;",
-            "link": "http://www.google.com",
+            "link": "/",
             "target": "_blank"
+        },
+        "bottom-navigation": {
+            "iconColor": "red",
+            "titleColor": "777777",
+            "borderColor": "#3884FE"
+          },
+        "edit-link": {
+            "base": "https://github.com/dockteck/dockteck.github.io/edit/master/source/",
+            "label": "このページを編集してあげる"
         },
         "hints": {
             "info": "fa fa-bullhorn",
