@@ -363,6 +363,7 @@
 <h2 id="プラグイン"><a name="プラグイン" class="plugin-anchor" href="#プラグイン"><i class="fa fa-link" aria-hidden="true"></i></a>プラグイン</h2>
 <p><a href="https://www.npmjs.com/" target="_blank">npm - https://www.npmjs.com/</a><br>基本的には上記のnpmのサイトで<code>gitbook-plugin</code>または<code>honkit-plugin</code>で検索してVScode(ターミナル)からインストールすることになります。</p>
 <p>プラグイン名をbook.jsonのpluginsに登録することで有効になります。<br>さらにそのプラグインに設定ができる場合はpluginsConfigに記載します。そのプラグインのnpmのページか製作者のGithubのページに記載されていることが多いです。<br>そのプラグインを自分で編集してしまうのも一つの手です。</p>
+<h3 id="実際にプラグインをインストールしてみる"><a name="実際にプラグインをインストールしてみる" class="plugin-anchor" href="#実際にプラグインをインストールしてみる"><i class="fa fa-link" aria-hidden="true"></i></a>実際にプラグインをインストールしてみる</h3>
 <p>試しに<a href="https://www.npmjs.com/package/gitbook-plugin-bottom-navigation" target="_blank">bottom-navigation</a>を入れてみましょう。</p>
 <p>まずはVSCodeのターミナルからnpmでインストールします。  </p>
 <pre><code class="lang-bash">npm i gitbook-plugin-bottom-navigation --save-dev
@@ -395,9 +396,27 @@
         }
     }
 }
-</code></pre><p>ここで一度みてみましょう。<br>ターミナルで下記を実行してみてください。  </p>
+</code></pre><h3 id="ローカルで確認してみる"><a name="ローカルで確認してみる" class="plugin-anchor" href="#ローカルで確認してみる"><i class="fa fa-link" aria-hidden="true"></i></a>ローカルで確認してみる</h3>
+<p>ここで一度どうなっているか見てみましょう。<br>ターミナルで下記を実行してみてください。  </p>
 <pre><code>npx honkit serve
-</code></pre><p>ブラウザから <a href="http://localhost:4000" target="_blank">http://localhost:4000</a> にアクセスして、一番下を見るとプラグインの機能が追加されているはずです。 <code>Ctrl+C</code> で停止します。<br>ついでに右下を見ると <code>[報告するる]</code> というボタンがある事を確認しておいてください。</p>
+</code></pre><p>ブラウザから <a href="http://localhost:4000" target="_blank">http://localhost:4000</a> にアクセスして、一番下を見るとプラグインの機能が追加されているはずです。 <code>Ctrl+C</code> で停止します。<br>ついでにブラウザの右下を見ると <code>[報告するる]</code> というボタンがある事を確認しておいてください。</p>
+<h2 id="スタイルシート"><a name="スタイルシート" class="plugin-anchor" href="#スタイルシート"><i class="fa fa-link" aria-hidden="true"></i></a>スタイルシート</h2>
+<p>ヘッダーなどのデザインを変更したい時にはその方法はいくつかあります。上述のプラグインを利用したり、あるいは自ら作ってしまうのもひとつです。</p>
+<p><a href="https://honkit.netlify.app/themes/" target="_blank">HonKitの公式サイト</a>によると<code>「ソースから直接テーマのテンプレートを拡張できる」</code>とあります。しかし「さくさくっと」いきたいのでココではスタイルシートの拡張についてのみ軽く紹介するだけにします。</p>
+<p><div class="alert alert-warning hints-alert"><div class="hints-icon"><i class="fa fa-question-circle"></i></div><div class="hints-container"><p>レイアウトに興味がある方は下記の方々を参考にしてみてください</p>
+<ul>
+<li><a href="https://github.com/asciidwango/js-primer/tree/master/source/_layouts/website" target="_blank">Jsprimer</a></li>
+<li><a href="https://github.com/akahigeg/honkit-plugin-theme-webheadfoot" target="_blank">akahigeg</a></li>
+<li><a href="https://github.com/stuyk/honkit-plugin-theme-darkening" target="_blank">Stuyk</a></li>
+</ul>
+</div></div></p>
+<p>まずbook.jsonに拡張スタイルシートの指定をします。<br>※サンプルをコピペした方はすでに入っています</p>
+<pre><code>&quot;styles&quot;: {
+    &quot;website&quot;: &quot;styles/website.css&quot;,
+}
+</code></pre><p>次にディレクトリとファイルを作成します。</p>
+<pre><code>mkdir ./source/styles &amp;&amp; type nul &gt; ./source/styles/website.css
+</code></pre><p>このwebsite.cssに</p>
 <div class="navPagesContainer"> <div class="navPagesLinks"> <a class="card cardPrevious"> <div class="cardIcon"> <i class="fa fa-angle-left"></i> </div> <div class="cardPreviousBody"> <div class="cardHint"> <span>Previous</span> </div> <div class="cardTitle"> <span>サンプルコード</span> </div> </div> </a> <a class="card cardNext"> <div class="cardNextBody"> <div class="cardHint"> <span>Next</span> </div> <div class="cardTitle"> <span>VSCとMD</span> </div> </div> <div class="cardIcon"> <i class="fa fa-angle-right"></i> </div> </a> </div> </div>
                                 
                                 </section>
@@ -441,7 +460,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"カスタマイズ","level":"3.2","depth":1,"next":{"title":"VSCとMD","level":"3.3","depth":1,"path":"honkit/vscmd.md","ref":"honkit/vscmd.md","articles":[]},"previous":{"title":"サンプルコード","level":"3.1.1","depth":2,"path":"honkit/scode.md","ref":"honkit/scode.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","@dogatana/search-plus","-lunr","-search","@dogatana/page-toc-button","@dogatana/back-to-top-button","anchors","bottom-navigation","copy-code-button","edit-link","hide-published-with","hints","insert-logo-link-style","toggle-chapters"],"root":"./source","styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"@dogatana/back-to-top-button":{},"@dogatana/page-toc-button":{},"insert-logo-link-style":{"src":"/assets/logo.png","style":"background: none;","link":"/","target":"_blank"},"hints":{"info":"fa fa-bullhorn","tip":"fa fa-coffee","danger":"fa fa-check","working":"fa fa-question-circle"},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"@dogatana/search-plus":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"bottom-navigation":{"navPrevSelector":null,"navNextSelector":null,"iconColor":"red","titleColor":"777777","borderColor":"#3884FE","pageInnerWidth":null,"prevText":"Previous","nextText":"Next"},"copy-code-button":{},"edit-link":{"label":"このページを編集してあげる","base":"https://github.com/dockteck/dockteck.github.io/edit/master/source/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{}},"theme":"default","author":"Name","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"HonkitでGithub Pagesを作ってみる","language":"ja","gitbook":"*","description":"HonkitをGithub Pagesで公開する"},"file":{"path":"honkit/design.md","mtime":"2022-10-04T06:59:25.043Z","type":"markdown"},"gitbook":{"version":"4.0.0","time":"2022-10-04T06:59:32.931Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"カスタマイズ","level":"3.2","depth":1,"next":{"title":"VSCとMD","level":"3.3","depth":1,"path":"honkit/vscmd.md","ref":"honkit/vscmd.md","articles":[]},"previous":{"title":"サンプルコード","level":"3.1.1","depth":2,"path":"honkit/scode.md","ref":"honkit/scode.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","@dogatana/search-plus","-lunr","-search","@dogatana/page-toc-button","@dogatana/back-to-top-button","anchors","bottom-navigation","copy-code-button","edit-link","hide-published-with","hints","insert-logo-link-style","toggle-chapters"],"root":"./source","styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"@dogatana/back-to-top-button":{},"@dogatana/page-toc-button":{},"insert-logo-link-style":{"src":"/assets/logo.png","style":"background: none;","link":"/","target":"_blank"},"hints":{"info":"fa fa-bullhorn","tip":"fa fa-coffee","danger":"fa fa-check","working":"fa fa-question-circle"},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"@dogatana/search-plus":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"bottom-navigation":{"navPrevSelector":null,"navNextSelector":null,"iconColor":"red","titleColor":"777777","borderColor":"#3884FE","pageInnerWidth":null,"prevText":"Previous","nextText":"Next"},"copy-code-button":{},"edit-link":{"label":"このページを編集してあげる","base":"https://github.com/dockteck/dockteck.github.io/edit/master/source/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{}},"theme":"default","author":"Name","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"HonkitでGithub Pagesを作ってみる","language":"ja","gitbook":"*","description":"HonkitをGithub Pagesで公開する"},"file":{"path":"honkit/design.md","mtime":"2022-10-04T07:51:38.530Z","type":"markdown"},"gitbook":{"version":"4.0.0","time":"2022-10-04T07:51:56.292Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
