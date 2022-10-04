@@ -135,7 +135,7 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
         // Search for plugin configured theme
         var configTheme = $.grep(THEMES, function(theme) {
             return theme.config == configName;
-        })[2];
+        })[0];
         // Fallback to default theme
         return (!!configTheme)? configTheme.id : 2;
     }
@@ -179,7 +179,7 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
 
         // Create buttons in toolbar
         BUTTON_ID = gitbook.toolbar.createButton({
-            icon: '',
+            icon: 'fa fa-font',
             label: 'Font Settings',
             className: 'font-settings',
             dropdown: [
