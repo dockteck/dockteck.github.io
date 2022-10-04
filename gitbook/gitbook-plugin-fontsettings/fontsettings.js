@@ -135,9 +135,9 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
         // Search for plugin configured theme
         var configTheme = $.grep(THEMES, function(theme) {
             return theme.config == configName;
-        })[0];
+        })[2];
         // Fallback to default theme
-        return (!!configTheme)? configTheme.id : 2;
+        return (!!configTheme)? configTheme.id : 0;
     }
 
     function update() {
