@@ -371,7 +371,7 @@
 <p>package.jsonをみると<code>gitbook-plugin-bottom-navigation</code>が増えているのがわかるはずです。</p>
 <p>次にbook.jsonを開いて<code>plugins</code>に下記を追加します。</p>
 <pre><code>&quot;bottom-navigation&quot;,
-</code></pre><p>さらに<code>pluginsConfig</code>に下記を追加します。<br><code>null</code>の所に Hex でお好みのカラーコード(ネームもおｋ)を入れてください。何も入れなければデフォルトカラーになります。<br><a href="https://www.hexcolortool.com/" target="_blank">おぬぬめツール</a> - 他にも便利ツールがあります。</p>
+</code></pre><p>さらに<code>pluginsConfig</code>に下記を追加します。<br><code>null</code>の所に Hex でお好みのカラーコード(ネームもおｋ)を入れてください。何も入れなければデフォルトカラーになります。<br><a href="https://www.hexcolortool.com/" target="_blank">おぬぬめツール</a> - ここは他にも便利ツールがあります。</p>
 <pre><code>&quot;bottom-navigation&quot;: {
     &quot;iconColor&quot;: &quot;null&quot;,
     &quot;titleColor&quot;: &quot;null&quot;,
@@ -403,7 +403,7 @@
 <h2 id="スタイルシート"><a name="スタイルシート" class="plugin-anchor" href="#スタイルシート"><i class="fa fa-link" aria-hidden="true"></i></a>スタイルシート</h2>
 <p>ヘッダーなどのデザインを変更したい時にはその方法はいくつかあります。上述のプラグインを利用したり、あるいは自ら作ってしまうのもひとつです。</p>
 <p><a href="https://honkit.netlify.app/themes/" target="_blank">HonKitの公式サイト</a>によると<code>「ソースから直接テーマのテンプレートを拡張できる」</code>とあります。しかし「さくさくっと」いきたいのでココではスタイルシートの拡張についてのみ軽く紹介するだけにします。</p>
-<p><div class="alert alert-warning hints-alert"><div class="hints-icon"><i class="fa fa-question-circle"></i></div><div class="hints-container"><p>レイアウトに興味がある方は下記の方々を参考にしてみてください</p>
+<p><div class="alert alert-info hints-alert"><div class="hints-icon"><i class="fa fa-bullhorn"></i></div><div class="hints-container"><p>レイアウトに興味がある方は下記の方々の<code>_layouts内</code>を参考にしてみてください。</p>
 <ul>
 <li><a href="https://github.com/asciidwango/js-primer/tree/master/source/_layouts/website" target="_blank">Jsprimer</a></li>
 <li><a href="https://github.com/akahigeg/honkit-plugin-theme-webheadfoot" target="_blank">akahigeg</a></li>
@@ -416,7 +416,25 @@
 }
 </code></pre><p>次にディレクトリとファイルを作成します。</p>
 <pre><code>mkdir ./source/styles &amp;&amp; type nul &gt; ./source/styles/website.css
-</code></pre><p>このwebsite.cssに</p>
+</code></pre><p>このwebsite.cssに<a href="scode.html#websitecss">別ページのサンプル</a>をコピペしてください。<br>再度<code>npx honkit serve</code>を実行してみてください。</p>
+<p>まずタイトルに下線が増えました。<br>さらに先ほど確認した <code>[報告するる]</code> のデザインが<a href="https://jsprimer.net/" target="_blank">Jsprimer</a>と同じになりました。<br>このようにデザインの変更が可能です。興味がある方は、<code>project/node_modules/@honkit/honkit-plugin-theme-default/_assets/website/style.css</code>を見ていじってみてください。</p>
+<p>ただスマホで見ると<a href="https://jsprimer.net/" target="_blank">Jsprimer</a>では非表示になっているのですが、そこまでやるのはめんどいのでぼくは根本的に消しました。下記を実行すれば消せます。</p>
+<pre><code>npm r gitbook-plugin-github-issue-feedback
+</code></pre><h2 id="プラグインを使わずにfaviconを変更する"><a name="プラグインを使わずにfaviconを変更する" class="plugin-anchor" href="#プラグインを使わずにfaviconを変更する"><i class="fa fa-link" aria-hidden="true"></i></a>プラグインを使わずにfaviconを変更する</h2>
+<p>結論だけ言うと<code>project/node_modules/@honkit/honkit-plugin-theme-default/_assets/website/images</code>の画像を同じ名前にして入れ替えるだけです。</p>
+<p>ちなみに、デフォルトの<code>apple-touch-icon-precomposed-152.png</code> は 180x180-96dpi<br><code>favicon.ico</code> は 48x48-96dpi になっていました。</p>
+<h2 id="そのほかのデザイン変更"><a name="そのほかのデザイン変更" class="plugin-anchor" href="#そのほかのデザイン変更"><i class="fa fa-link" aria-hidden="true"></i></a>そのほかのデザイン変更</h2>
+<p>正攻法なのかどうかよくわかりませんが、このサイトで実際にやった変更を記載しておきます。</p>
+<h3 id="テーマのデフォルトカラーを変更"><a name="テーマのデフォルトカラーを変更" class="plugin-anchor" href="#テーマのデフォルトカラーを変更"><i class="fa fa-link" aria-hidden="true"></i></a>テーマのデフォルトカラーを変更</h3>
+<p>Nightカラーが気に入ったのでコレがデフォルトになるように変更しました。<br><code>project/node_modules/gitbook-plugin-fontsettings/assets/fontsettings.js</code>の168行目を次のようになるように付け足して変更すればできます。</p>
+<pre><code>theme:  configTheme || 2
+</code></pre><h3 id="toc-button-backの色を変更"><a name="toc-button-backの色を変更" class="plugin-anchor" href="#toc-button-backの色を変更"><i class="fa fa-link" aria-hidden="true"></i></a>toc-button-backの色を変更</h3>
+<p>Nightモードの時の色が変だったので変更しました。<br><code>project/node_modules/@dogatana/honkit-plugin-page-toc-button/assets/plugin.css</code>
+の84行目のrgbの数値を<code>38, 40, 56, 0.9</code>に変更しました。</p>
+<h3 id="リンク付きのロゴ画像を追加する"><a name="リンク付きのロゴ画像を追加する" class="plugin-anchor" href="#リンク付きのロゴ画像を追加する"><i class="fa fa-link" aria-hidden="true"></i></a>リンク付きのロゴ画像を追加する</h3>
+<p>これは<a href="https://github.com/zeroone/gitbook-plugin-insert-logo-link-style#readme" target="_blank">insert-logo-link-style</a>プラグインを使っています。<br>ファルダを作成して、そこにロゴの画像を置きます。</p>
+<pre><code>mkdir ./source/assets
+</code></pre><p>linkにはLINEのオープンチャットやDiscordなど好きなURLを入力してください。不要なら空にすればいいです。</p>
 <div class="navPagesContainer"> <div class="navPagesLinks"> <a class="card cardPrevious"> <div class="cardIcon"> <i class="fa fa-angle-left"></i> </div> <div class="cardPreviousBody"> <div class="cardHint"> <span>Previous</span> </div> <div class="cardTitle"> <span>サンプルコード</span> </div> </div> </a> <a class="card cardNext"> <div class="cardNextBody"> <div class="cardHint"> <span>Next</span> </div> <div class="cardTitle"> <span>VSCとMD</span> </div> </div> <div class="cardIcon"> <i class="fa fa-angle-right"></i> </div> </a> </div> </div>
                                 
                                 </section>
@@ -460,7 +478,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"カスタマイズ","level":"3.2","depth":1,"next":{"title":"VSCとMD","level":"3.3","depth":1,"path":"honkit/vscmd.md","ref":"honkit/vscmd.md","articles":[]},"previous":{"title":"サンプルコード","level":"3.1.1","depth":2,"path":"honkit/scode.md","ref":"honkit/scode.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","@dogatana/search-plus","-lunr","-search","@dogatana/page-toc-button","@dogatana/back-to-top-button","anchors","bottom-navigation","copy-code-button","edit-link","hide-published-with","hints","insert-logo-link-style","toggle-chapters"],"root":"./source","styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"@dogatana/back-to-top-button":{},"@dogatana/page-toc-button":{},"insert-logo-link-style":{"src":"/assets/logo.png","style":"background: none;","link":"/","target":"_blank"},"hints":{"info":"fa fa-bullhorn","tip":"fa fa-coffee","danger":"fa fa-check","working":"fa fa-question-circle"},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"@dogatana/search-plus":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"bottom-navigation":{"navPrevSelector":null,"navNextSelector":null,"iconColor":"red","titleColor":"777777","borderColor":"#3884FE","pageInnerWidth":null,"prevText":"Previous","nextText":"Next"},"copy-code-button":{},"edit-link":{"label":"このページを編集してあげる","base":"https://github.com/dockteck/dockteck.github.io/edit/master/source/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{}},"theme":"default","author":"Name","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"HonkitでGithub Pagesを作ってみる","language":"ja","gitbook":"*","description":"HonkitをGithub Pagesで公開する"},"file":{"path":"honkit/design.md","mtime":"2022-10-04T07:51:38.530Z","type":"markdown"},"gitbook":{"version":"4.0.0","time":"2022-10-04T07:51:56.292Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"カスタマイズ","level":"3.2","depth":1,"next":{"title":"VSCとMD","level":"3.3","depth":1,"path":"honkit/vscmd.md","ref":"honkit/vscmd.md","articles":[]},"previous":{"title":"サンプルコード","level":"3.1.1","depth":2,"path":"honkit/scode.md","ref":"honkit/scode.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","@dogatana/search-plus","-lunr","-search","@dogatana/page-toc-button","@dogatana/back-to-top-button","anchors","bottom-navigation","copy-code-button","edit-link","hide-published-with","hints","insert-logo-link-style","toggle-chapters"],"root":"./source","styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"@dogatana/back-to-top-button":{},"@dogatana/page-toc-button":{},"insert-logo-link-style":{"src":"/assets/logo.png","style":"background: none;","link":"/","target":"_blank"},"hints":{"info":"fa fa-bullhorn","tip":"fa fa-coffee","danger":"fa fa-check","working":"fa fa-question-circle"},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"@dogatana/search-plus":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"bottom-navigation":{"navPrevSelector":null,"navNextSelector":null,"iconColor":"red","titleColor":"777777","borderColor":"#3884FE","pageInnerWidth":null,"prevText":"Previous","nextText":"Next"},"copy-code-button":{},"edit-link":{"label":"このページを編集してあげる","base":"https://github.com/dockteck/dockteck.github.io/edit/master/source/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{}},"theme":"default","author":"Name","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"HonkitでGithub Pagesを作ってみる","language":"ja","gitbook":"*","description":"HonkitをGithub Pagesで公開する"},"file":{"path":"honkit/design.md","mtime":"2022-10-04T09:34:15.825Z","type":"markdown"},"gitbook":{"version":"4.0.0","time":"2022-10-04T10:59:43.836Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
