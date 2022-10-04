@@ -56,6 +56,9 @@ git remote add origin https://github.com/(user name)/(repository name).git
 ```
 npm run deploy
 ```
+
+### 最後に Github で設定
+
 あとは、リポジトリのSettingsからPagesに行ってBranch欄のプルダウンをmasterからgh-pagesに変更したらSaveを押してください。
 ![deploy img](img/deploy.png)
 
