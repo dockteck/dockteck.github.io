@@ -4,8 +4,8 @@
 ```
 {
     "root": "./source",
-    "title": "Honkit - Github Pages",
-    "description": "HonkitをGithub Pagesで公開する",
+    "title": "",
+    "description": "",
     "author": "Name",
     "language": "ja",
     "plugins": [
@@ -87,15 +87,20 @@
 ```
 ## website.css
 ```
+    /* border-bottom */
+    h1 {
+        border-bottom: 1px solid #000;
+    }
+    
     /* github-issue-feedback */
     .gitbook-plugin-github-issue-feedback {
         background-color: #333;
         color: #fff;
         opacity: 0.8;
         padding: 4px;
-        margin-right: 24px;
+        margin-right: 25px;
         margin-bottom: 4px;
-        border-radius: 6px;
+        border-radius: 2px;
     }
 
     .gitbook-plugin-github-issue-feedback:hover {

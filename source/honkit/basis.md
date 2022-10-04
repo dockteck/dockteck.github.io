@@ -9,7 +9,7 @@
 - 全ての答えは[公式サイト](https://honkit.netlify.app/)にある！(((はず
 
 四の五の言わずさっそく作ってみましょう。  
-デスクトップで右クリックからVSCodeを開いてください。  
+任意のフォルダで右クリックからVSCodeを開いてください。  
 VSCodeのターミナルを開いたら下記を順番に実行してください。
 
 ```bash
@@ -39,14 +39,19 @@ type nul > book.json
 book.jsonファイルを作成したら[別ページにサンプル](scode.md)を置いてあるのでbook.jsonにコピペしてください。重要なのは root、plugins、pluginsConfigの３つだけです。  
 npmでインストールしたプラグインはpackage.jsonに登録され、その中からhonkitで使いたいプラグインをbook.jsonで指定および有効化します。そして指定したプラグイン自体の設定をpluginsConfigによって行います。
 
+[詳細はこちら](https://honkit.netlify.app/config.html)
+
 ## package.json
 
 これも[別ページにサンプル](scode.md#packagejson)を置いてあるのでpackage.jsonにコピペしてください。  
 先ほどnpmでインストールしたプラグインはpackage.jsonに登録されると言いましたが、逆に予めpackage.jsonに登録しておいてまとめてインストールすることもできます。下記を実行してみてください。
 
-```
+```bash
 npm install --save-dev
 ```
+
+⚠️HonKitをグローバルに入れたならプラグインもグローバルに、HonKitをローカルに入れたならプラグインもローカルに入れないとダメらしいです！推奨はローカルとのこと。  
+voltaやenvなどを入れているなら本来は気にせず `--save-dev` や `npx` を使わなくても大丈夫です。ただ、このサイトでは統一して `--save-dev` や `npx` を使います。
 
 ## SUMMARY.md
 
@@ -83,4 +88,6 @@ docsに出力したい場合は「なにをなにに」の順番なので、下�
 npx honkit build . docs
 ```
 
+{% hint style='tip' %}
 ちなみに、VSCodeだと右上のボタンや Ctrl+K を押して V を押したりすると横にプレビューを出せます。
+{% endhint %}

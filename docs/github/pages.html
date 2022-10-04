@@ -359,24 +359,31 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="github-pages"><a name="github-pages" class="plugin-anchor" href="#github-pages"><i class="fa fa-link" aria-hidden="true"></i></a>Github Pages</h1>
+<p>いよいよGitHub Pagesで公開しよう。</p>
+<p>予めリポジトリは作成しておいてください。<br>※README.mdは作成しないほうがいいです。<br>参考 - <a href="https://docs.github.com/ja/pages/getting-started-with-github-pages/creating-a-github-pages-site" target="_blank">https://docs.github.com/ja/pages/getting-started-with-github-pages/creating-a-github-pages-site</a></p>
+<h2 id="gitignoreで無駄なファイルを除外"><a name="gitignoreで無駄なファイルを除外" class="plugin-anchor" href="#gitignoreで無駄なファイルを除外"><i class="fa fa-link" aria-hidden="true"></i></a>.gitignoreで無駄なファイルを除外</h2>
+<p>push時にnode_modulesと_bookは無駄なので除外します。VSCodeのターミナルから下記を実行してください。</p>
 <pre><code>type nul &gt; .gitignore
-echo node_modules/ _book &gt;&gt; .gitignore
-
-git init
-git add --all
-git commit -m &quot;first commit&quot;
-git remote add origin https://github.com/{YOUR-GITHUB-ACCOUNT}/{YOUR-GITHUB-PROJECT}.git
-git branch -M master
-git push -u origin master
-
-
-または
-
-
-git remote add origin https://github.com/(user name)/(repository name).git
-
-npm run deploy
-</code></pre><div class="navPagesContainer"> <div class="navPagesLinks"> <a class="card cardPrevious"> <div class="cardIcon"> <i class="fa fa-angle-left"></i> </div> <div class="cardPreviousBody"> <div class="cardHint"> <span>Previous</span> </div> <div class="cardTitle"> <span>VSCとMD</span> </div> </div> </a> <a class="card cardNext"> <div class="cardNextBody"> <div class="cardHint"> <span>Next</span> </div> <div class="cardTitle"> <span>404について</span> </div> </div> <div class="cardIcon"> <i class="fa fa-angle-right"></i> </div> </a> </div> </div>
+</code></pre><pre><code>echo node_modules/ _book &gt;&gt; .gitignore
+</code></pre><p>Git操作についてはここでは説明しません。ただcommitにはコメントが必要です。日本語も可能なので適宜ご自由に変更してください。<br>URLに関してはぼくの場合は、<code>https://github.com/dockteck/dockteck.github.io.git</code>となります。これはご自分のに変更してください。</p>
+<h2 id="masterブランチにpush"><a name="masterブランチにpush" class="plugin-anchor" href="#masterブランチにpush"><i class="fa fa-link" aria-hidden="true"></i></a>masterブランチにpush</h2>
+<pre><code>git init
+</code></pre><pre><code>git add --all
+</code></pre><pre><code>git commit -m &quot;first commit&quot;
+</code></pre><pre><code>git remote add origin https://github.com/(user name)/(repository name).git
+</code></pre><pre><code>git branch -M master
+</code></pre><pre><code>git push -u origin master
+</code></pre><h2 id="デプロイ"><a name="デプロイ" class="plugin-anchor" href="#デプロイ"><i class="fa fa-link" aria-hidden="true"></i></a>デプロイ</h2>
+<p>npmでgh-pageをインストールすることで楽ちんになります。package.jsonのscriptsに<code>&quot;deploy&quot;: &quot;npx honkit build . docs &amp;&amp; gh-pages -d docs&quot;</code>と追記すればおｋです。<br>※<a href="scode.md#packagejson">ぼくのサンプル</a>をコピペしてるなら、すでにインストールも設定もできています</p>
+<p>先に、<a href="scode.md#packagejson">サンプルのpackage.json</a>の5行目のhomepageのURLを自分のに置き換えてください。ぼくの場合は<code>https://dockteck.github.io/</code>になります。</p>
+<p>次に、下記のURLを自分のに変更してください。ぼくの場合は、<code>https://github.com/dockteck/dockteck.github.io.git</code>となります。</p>
+<pre><code>git remote add origin https://github.com/(user name)/(repository name).git
+</code></pre><p>いざ実行。</p>
+<pre><code>npm run deploy
+</code></pre><p>あとは、リポジトリのSettingsからPagesに行ってBranch欄のプルダウンをmasterからgh-pagesに変更したらSaveを押してください。
+<img src="img/deploy.png" alt="deploy img"></p>
+<p>最後に上段タブにあるActionsを押してランプがオレンジから緑になったら完成です！</p>
+<div class="navPagesContainer"> <div class="navPagesLinks"> <a class="card cardPrevious"> <div class="cardIcon"> <i class="fa fa-angle-left"></i> </div> <div class="cardPreviousBody"> <div class="cardHint"> <span>Previous</span> </div> <div class="cardTitle"> <span>VSCとMD</span> </div> </div> </a> <a class="card cardNext"> <div class="cardNextBody"> <div class="cardHint"> <span>Next</span> </div> <div class="cardTitle"> <span>404について</span> </div> </div> <div class="cardIcon"> <i class="fa fa-angle-right"></i> </div> </a> </div> </div>
                                 
                                 </section>
                             
@@ -419,7 +426,7 @@ npm run deploy
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Github Pages","level":"4.1","depth":1,"next":{"title":"404について","level":"4.2","depth":1,"path":"github/404p.md","ref":"github/404p.md","articles":[]},"previous":{"title":"VSCとMD","level":"3.3","depth":1,"path":"honkit/vscmd.md","ref":"honkit/vscmd.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","@dogatana/search-plus","-lunr","-search","@dogatana/page-toc-button","@dogatana/back-to-top-button","anchors","bottom-navigation","copy-code-button","edit-link","hide-published-with","hints","insert-logo-link-style","toggle-chapters"],"root":"./source","styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"@dogatana/back-to-top-button":{},"@dogatana/page-toc-button":{},"insert-logo-link-style":{"src":"/assets/logo.png","style":"background: none;","link":"/","target":"_blank"},"hints":{"info":"fa fa-bullhorn","tip":"fa fa-coffee","danger":"fa fa-check","working":"fa fa-question-circle"},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"@dogatana/search-plus":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"bottom-navigation":{"navPrevSelector":null,"navNextSelector":null,"iconColor":"red","titleColor":"777777","borderColor":"#3884FE","pageInnerWidth":null,"prevText":"Previous","nextText":"Next"},"copy-code-button":{},"edit-link":{"label":"このページを編集してあげる","base":"https://github.com/dockteck/dockteck.github.io/edit/master/source/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{}},"theme":"default","author":"Name","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"HonkitでGithub Pagesを作ってみる","language":"ja","gitbook":"*","description":"HonkitをGithub Pagesで公開する"},"file":{"path":"github/pages.md","mtime":"2022-10-03T11:42:48.800Z","type":"markdown"},"gitbook":{"version":"4.0.0","time":"2022-10-04T02:48:38.365Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Github Pages","level":"4.1","depth":1,"next":{"title":"404について","level":"4.2","depth":1,"path":"github/404p.md","ref":"github/404p.md","articles":[]},"previous":{"title":"VSCとMD","level":"3.3","depth":1,"path":"honkit/vscmd.md","ref":"honkit/vscmd.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","@dogatana/search-plus","-lunr","-search","@dogatana/page-toc-button","@dogatana/back-to-top-button","anchors","bottom-navigation","copy-code-button","edit-link","hide-published-with","hints","insert-logo-link-style","toggle-chapters"],"root":"./source","styles":{"website":"styles/website.css","pdf":"styles/pdf.css"},"pluginsConfig":{"@dogatana/back-to-top-button":{},"@dogatana/page-toc-button":{},"insert-logo-link-style":{"src":"/assets/logo.png","style":"background: none;","link":"/","target":"_blank"},"hints":{"info":"fa fa-bullhorn","tip":"fa fa-coffee","danger":"fa fa-check","working":"fa fa-question-circle"},"hide-published-with":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"@dogatana/search-plus":{},"page-toc-button":{"maxTocDepth":2,"minTocSize":2},"bottom-navigation":{"navPrevSelector":null,"navNextSelector":null,"iconColor":"red","titleColor":"777777","borderColor":"#3884FE","pageInnerWidth":null,"prevText":"Previous","nextText":"Next"},"copy-code-button":{},"edit-link":{"label":"このページを編集してあげる","base":"https://github.com/dockteck/dockteck.github.io/edit/master/source/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"toggle-chapters":{}},"theme":"default","author":"Name","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"HonkitでGithub Pagesを作ってみる","language":"ja","gitbook":"*","description":"HonkitをGithub Pagesで公開する"},"file":{"path":"github/pages.md","mtime":"2022-10-04T10:59:28.146Z","type":"markdown"},"gitbook":{"version":"4.0.0","time":"2022-10-04T10:59:43.836Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
